@@ -1,4 +1,4 @@
-package main.java;
+package main.java.Helper;
 
 import java.util.ArrayList;
 
@@ -7,7 +7,7 @@ public class Task {
     private String description;
     private String deadline;
     private String note;
-    //private ArrayList<String> members;
+    private ArrayList<Member> members = new ArrayList<Member>();
 
     //getters and setters
 
@@ -43,25 +43,28 @@ public class Task {
         this.note = note;
     }
 
-//    public String getMembers() {
-//        StringBuilder membersS = new StringBuilder();
-//            for(Object s: members){
-//                membersS.append(s);
-//                membersS.append("\t");
-//            }
-//        return membersS.toString();
-//    }
-//
-//    public void setMembers(ArrayList<String> members) {
-//        this.members = members;
-//    }
+    public String getMembers() {
+        StringBuilder membersS = new StringBuilder();
+            for(Member s: members){
+                membersS.append(s.getMemberInfo());
+                membersS.append("\n");
+            }
+        return membersS.toString();
+    }
+
+    public void setMembersList(ArrayList<Member> members) {
+        this.members = members;
+    }
+
+    public void appendMember(Member a){this.members.add(a);}
 
     //other methods
 
-    String getTaskInfo(){
+    public String getTaskInfo(){
         return "Task Name: " + getName() + "\n"
                 + "Task Description: " + getDescription() + "\n"
                 + "Task Deadline: "+ getDeadline() + "\n"
-                + "Task Note: " + getNote() + "\n";
+                + "Task Note: " + getNote() + "\n"
+                + "Members::::::::::::\n" + getMembers();
     }
 }
