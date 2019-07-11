@@ -30,8 +30,8 @@ public class Member{
     }
 
     public String getMemberInfo(){
-        return "Surname - " + surname +
-                ", Name - " + name +
-                ", Position - " + position +";";
+        return "Surname - " + getSurname() +
+                ", Name - " + getName() +
+                ", Position - " + getPosition() +";";
     }
 }
